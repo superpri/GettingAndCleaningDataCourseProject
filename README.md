@@ -20,10 +20,19 @@ The goal is to prepare tidy data that can be used for later analysis. Each stude
 
 ## Script
 
-The script run_analysis.R contains all code to build my solution to the problem given. You don't need to download the dataset. The script has its means:
+The script run_analysis.R contains all code to build my solution to the problem given. All one needs to do is run it:
+```R
+    source('./run_analysis.R')
+    analyze()
+```
+
+You don't need to download the dataset. The script has its means:
 ```R
     download.file("https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI%20HAR%20Dataset.zip", destfile="dataset.zip", method="wget")
     unzip("dataset.zip")
     setwd("UCI HAR Dataset")
 ```
- 
+
+The final tidy data is written on *final.txt*.
+
+*Note*: In all the examples above, it is assumed that the script file is physically in the current working directory. If it does not, you should provide the correct path to the file to source it.
