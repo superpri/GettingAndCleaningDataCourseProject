@@ -1,4 +1,4 @@
-# README
+# Final Project - Getting And Cleaning Data
 
 This is the final project for Getting And Cleaning Data class of the Signature Track for Data Specialist online program given by John Hopkins University on Coursera. The purpose of this project is to demonstrate my ability to collect, work with, and clean a data set.
 
