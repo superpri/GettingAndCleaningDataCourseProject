@@ -1,4 +1,4 @@
-clean <- {
+analyze <- {
     library(plyr)
     
     download.file("https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI%20HAR%20Dataset.zip",
@@ -42,7 +42,21 @@ clean <- {
     for(roww in 1:nrow(step_3))
         for(coll in 1:ncol(step_3))
             final[roww,coll] <- step_3[roww,][coll][1,][[1]][[1]]
-    colnames(final) <- colnames(step_3)
+    
+    finalNames <- colnames(step_3)
+    
+    finalNames <- gsub(".mean...X", "X-Mean average", finalNames)
+    finalNames <- gsub(".mean...Y", "Y-Mean average", finalNames)
+    finalNames <- gsub(".mean...Z", "Z-Mean average", finalNames)
+    
+    finalNames <- gsub(".std...X", "X-Std average", finalNames)
+    finalNames <- gsub(".std...Y", "Y-Std average", finalNames)
+    finalNames <- gsub(".std...Z", "Z-Std average", finalNames)
+    
+    finalNames <- gsub(".std..", "-Std average", finalNames)
+    finalNames <- gsub(".mean..", "-Mean average", finalNames)
+
+    colnames(final) <- colnames(finalNames)
     
     write.table(final, "final.txt")
 }
