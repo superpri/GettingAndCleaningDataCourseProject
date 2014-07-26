@@ -1,4 +1,4 @@
-analyze <- {
+analyze <- function(){
     library(plyr)
     
     download.file("https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI%20HAR%20Dataset.zip",
@@ -56,7 +56,7 @@ analyze <- {
     finalNames <- gsub(".std..", "-Std average", finalNames)
     finalNames <- gsub(".mean..", "-Mean average", finalNames)
 
-    colnames(final) <- colnames(finalNames)
+    colnames(final) <- finalNames
     
     write.table(final, "final.txt")
 }
