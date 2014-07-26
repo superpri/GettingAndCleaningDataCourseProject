@@ -36,8 +36,13 @@ clean <- {
     
     #Creates a second, independent tidy data set with the average of each variable 
     #for each activity and each subject. 
-    m <- c(grep("-mean\\(\\)|-std\\(\\)", names$V2))
-    names[m,]
-    m <- c(m, 562, 563)
-    write.table(ddply(step_2, .(Subject), summary),file="text.txt")
+    step_3 <- aggregate(. ~ Subject+Activity, step_2, ave)
+
+    final <- data.frame()
+    for(roww in 1:nrow(step_3))
+        for(coll in 1:ncol(step_3))
+            final[roww,coll] <- step_3[roww,][coll][1,][[1]][[1]]
+    colnames(final) <- colnames(step_3)
+    
+    write.table(final, "final.txt")
 }
