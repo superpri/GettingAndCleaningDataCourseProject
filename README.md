@@ -33,6 +33,6 @@ You don't need to download the dataset. The script has its means:
     setwd("UCI HAR Dataset")
 ```
 
-The final tidy data is written on *final.txt*.
+The script changes the directory to the *UCI HAR Dataset* extracted from the download.zip and executes all functions there. The final tidy data is written on *final.txt*.
 
 *Note*: In all the examples above, it is assumed that the script file is physically in the current working directory. If it does not, you should provide the correct path to the file to source it.
